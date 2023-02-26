@@ -8,7 +8,7 @@ import SignUp from "./routes/SignUp";
 import AccountPage from "./routes/AccountPage";
 import CoinPage from "./routes/CoinPage";
 import axios from "axios";
-
+import Footer from "./Components/Footer";
 const App = () => {
   const [coins, setCoins] = useState([]);
 
@@ -29,13 +29,13 @@ const App = () => {
         <Route path="/" element={<Home coins = {coins}/>} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
-        <Route path="/acount" element={<AccountPage />} />
+        <Route path="/account" element={<AccountPage />} />
 
         <Route path="/coin/:coinId" element={<CoinPage/>}>
         <Route path=":coinId"/>
         </Route>
       </Routes>
-
+      <Footer/>
     
 
     </ThemeProvider>

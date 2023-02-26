@@ -11,7 +11,7 @@ const NavBar = () => {
     }
   return (
     <div className='rounded-div flex items-center justify-between h-20 mx-auto font-semibold mt-2'>
-        <Link to = "/"> <h1 className='text-2xl'>Coin Pub</h1> </Link>
+        <Link to = "/"> <h1 className='text-xl font-bold'>Satoshi Check</h1> </Link>
 
         <div className='hidden md:flex'>
             <ThemeToggle/>

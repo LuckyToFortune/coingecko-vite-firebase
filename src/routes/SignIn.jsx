@@ -1,23 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import {AiFillLock, AiOutlineMail} from "react-icons/ai"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
+
 const SignIn = () => {
+
+  const {signIn} = UserAuth()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setError('');
+    try {
+      await signIn(email, password)
+      navigate('/account')
+    } catch (error) {
+      setError(error.message);
+      console.log(error.message)
+    }
+  }
+
   return (
     <div>
       <div className="max-w-[400px] mx-auto min-h-[600px] px-4 py-20">
         <h1 className="text-2xl font-bold">Sign In</h1>
-        <form action="">
+        <form action="" onSubmit={handleSubmit}>
           <div className="my-4">
             <label htmlFor="email">Email</label>
             <div className="my-2 w-full relative rounded-2xl shadow-xl">
-              <input type="email" className="w-full p-2 bg-primary border border-input rounded-2xl" />
+              <input onChange={(event) => setEmail(event.target.value)} type="email" className="w-full p-2 bg-primary border border-input rounded-2xl" />
               <AiOutlineMail className="absolute top-3 right-2 text-gray-400"/>
             </div>
           </div>
           <div className="my-4">
             <label htmlFor="password">Password</label>
             <div className="my-2 w-full relative rounded-2xl shadow-xl">
-            <input type="password" className="w-full p-2 bg-primary border border-input rounded-2xl" />
+            <input onChange={(event) => setPassword(event.target.value)} type="password" className="w-full p-2 bg-primary border border-input rounded-2xl" />
               <AiFillLock className="absolute top-3 right-2 text-gray-400"/>
             </div>
           </div>

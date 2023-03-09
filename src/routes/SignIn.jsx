@@ -28,6 +28,7 @@ const SignIn = () => {
     <div>
       <div className="max-w-[400px] mx-auto min-h-[600px] px-4 py-20">
         <h1 className="text-2xl font-bold">Sign In</h1>
+        {error ? <p className="border-b border-red-500 p-2 my-2"> {`This User Does Not Exist`} </p> : null}
         <form action="" onSubmit={handleSubmit}>
           <div className="my-4">
             <label htmlFor="email">Email</label>

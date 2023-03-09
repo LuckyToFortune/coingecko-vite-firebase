@@ -13,7 +13,6 @@ const CoinItems = ({ coin }) => {
   const {user} = UserAuth();
 
   const coinPath = doc(db, "users", `${user?.email}`)
-
   
   const saveCoin = async() => {
     if (user?.email) {

@@ -1,4 +1,5 @@
 // Import the functions you need from the SDKs you need
+
 import { initializeApp } from "firebase/app";
 
 import { getAuth } from "firebase/auth";
@@ -8,12 +9,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDM9B4BwbzvzprCDUxnEUrhrcKfJnROd-E",
-  authDomain: "crypto-project-dd28f.firebaseapp.com",
-  projectId: "crypto-project-dd28f",
-  storageBucket: "crypto-project-dd28f.appspot.com",
-  messagingSenderId: "735579524297",
-  appId: "1:735579524297:web:ace79ffa0df54829c81118"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET ,
+  messagingSenderId:import.meta.env.VITE_FIREBASE_MESSAGING_SENDER ,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 

@@ -27,31 +27,36 @@ const NavBar = () => {
     <div className="rounded-div flex items-center justify-between h-20 mx-auto font-semibold mt-2">
       <Link to="/">
         {" "}
-        <h1 className="text-xl font-bold">Satoshi Check</h1>{" "}
+        <h1 className="text-xl font-bold">CoinGecko List</h1>{" "}
       </Link>
 
       <div className="hidden md:flex">
         <ThemeToggle />
       </div>
 
-     {
-        user?.email ? (
-            <div>
-                <Link className="p-4" to = "/account"> Account</Link>
-                <button className="" onClick={handleSignOut}>Sign Out</button>
-            </div>
-        ) : ( <div className="hidden md:block">
-        <Link className="p-4 hover:text-accent" to="/signIn">
-          Sign In
-        </Link>
-        <Link
-          className="bg-button text-buttonText px-5 py-2 ml-2 rounded-2xl shadow-lg hover:shadow-2xl"
-          to="/signUp"
-        >
-          Sign Up
-        </Link>
-      </div>)
-     }
+      {user?.email ? (
+        <div>
+          <Link className="p-4" to="/account">
+            {" "}
+            Account
+          </Link>
+          <button className="" onClick={handleSignOut}>
+            Sign Out
+          </button>
+        </div>
+      ) : (
+        <div className="hidden md:block">
+          <Link className="p-4 hover:text-accent" to="/signIn">
+            Sign In
+          </Link>
+          <Link
+            className="bg-button text-buttonText px-5 py-2 ml-2 rounded-2xl shadow-lg hover:shadow-2xl"
+            to="/signUp"
+          >
+            Sign Up
+          </Link>
+        </div>
+      )}
 
       {/*mobile menu icon */}
       <div className="flex md:hidden cursor-pointer z-10" onClick={handleNav}>
@@ -69,11 +74,15 @@ const NavBar = () => {
         <ul className="w-full p-4">
           <li className="border-b py-6">
             {" "}
-            <Link onClick={handleNav} to="/">Home</Link>{" "}
+            <Link onClick={handleNav} to="/">
+              Home
+            </Link>{" "}
           </li>
           <li className="border-b py-6">
             {" "}
-            <Link onClick={handleNav} to="/account">Account</Link>{" "}
+            <Link onClick={handleNav} to="/account">
+              Account
+            </Link>{" "}
           </li>
           <li className="border-b py-6">
             {" "}
